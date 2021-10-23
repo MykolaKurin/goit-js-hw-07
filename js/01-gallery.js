@@ -1,7 +1,20 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-const list = document.querySelector(".gallery");
+const galeryRef = document.querySelector(".gallery");
+
+const openModal = (event) => {
+  event.preventDefault();
+
+  const instance = basicLightbox.create(`
+    <div class="modal">
+        <img class="gallery__image" src="${event.target.dataset.source}" alt="Some text"/>
+    </div>
+  `);
+
+  instance.show();
+}
+
 const createImg = galleryItems.map(image =>
   `<div class="gallery__item">
     <a class="gallery__link" href="${image.original}">
@@ -14,5 +27,6 @@ const createImg = galleryItems.map(image =>
   </div>`
 ).join("");
 
-list.insertAdjacentHTML('afterbegin', createImg);
+galeryRef.insertAdjacentHTML('afterbegin', createImg);
+galeryRef.addEventListener('click', openModal);
 console.log(galleryItems);
