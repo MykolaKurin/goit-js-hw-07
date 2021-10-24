@@ -1,12 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
 const galeryRef = document.querySelector(".gallery");
-
 const openModal = (event) => {
   event.preventDefault();
 
-  const instance = SimpleLightbox.create(`
+  const instance = basicLightbox.create(`
    
     <div class="gallery">
         <img class="gallery__image" src="${event.target.dataset.source}" alt="Some text"
