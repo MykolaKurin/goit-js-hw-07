@@ -1,10 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
-var lightbox = new SimpleLightbox('.gallery');
-    lightbox.on('show.simplelightbox', function () {
-	// do something…
-});
+var lightbox = new SimpleLightbox(".gallery");
+const galeryRef = document.querySelector(".gallery");
 
 const openModal = (event) => {
   event.preventDefault();
@@ -20,14 +17,19 @@ const openModal = (event) => {
 
 const createImg = galleryItems.map(image =>
   `<div class="gallery__item">
-    <a class="gallery__item" href="${image.original}">
-    <img class="gallery__image" src="small-image.jpg" alt="Image description" />
+       <a class="gallery__item" href="${image.original}">
+        <img class="gallery__image"
+        src="${image.preview}"
+        alt="${image.description}"
+         />
     </a>
   </div>`
 ).join("");
 
-
-//lightbox.insertAdjacentHTML('afterbegin', createImg);
-//lightbox.addEventListener('click', openModal);
-
+galeryRef.insertAdjacentHTML('afterbegin', createImg);
+galeryRef.addEventListener('click', openModal);
 console.log(galleryItems);
+
+
+
+
