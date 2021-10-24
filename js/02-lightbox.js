@@ -30,7 +30,7 @@ const createImg = galleryItems.map(image =>
 galeryRef.insertAdjacentHTML('afterbegin', createImg);
 galeryRef.addEventListener('click', openModal);
 
-const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250, captionPosition: 'bottom'});
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250, captionPosition: 'bottom'});
 console.log(galleryItems);
 
 
