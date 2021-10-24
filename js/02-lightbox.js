@@ -1,6 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-var lightbox = new SimpleLightbox(".gallery");
+//var lightbox = new SimpleLightbox(".gallery");
+
 const galeryRef = document.querySelector(".gallery");
 
 const openModal = (event) => {
@@ -31,6 +32,8 @@ const createImg = galleryItems.map(image =>
 
 galeryRef.insertAdjacentHTML('afterbegin', createImg);
 galeryRef.addEventListener('click', openModal);
+
+const lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250, captionPosition: 'bottom'});
 console.log(galleryItems);
 
 
