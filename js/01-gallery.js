@@ -6,13 +6,16 @@ const galeryRef = document.querySelector(".gallery");
 const openModal = (event) => {
   event.preventDefault();
 
-  const instance = basicLightbox.create(`
-    <div class="modal">
-        <img class="gallery__image" src="${event.target.dataset.source}" alt="Some text"/>
-    </div>
-  `);
+  const image = event.target.dataset.source;
+  if (image) {
+    const instance = basicLightbox.create(`
+      <div class="modal">
+          <img class="gallery__image" src="${image}" alt="Some text"/>
+      </div>
+    `);
 
-  instance.show();
+    instance.show();
+  }
 }
 
 const createImg = galleryItems.map(image =>
